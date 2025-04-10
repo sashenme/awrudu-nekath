@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactFlagsSelect from "react-flags-select";
 import Header from "./components/Header";
 import NekathCard from "./components/NekathCard";
+import { getTimezonesForCountry } from "./utils/timezoneUtils";
+
 function App() {
   const nekathData = [
     {
@@ -66,21 +68,36 @@ function App() {
     },
   ];
 
-  const [selectedCountry, setSelected] = useState("LK");
+  const [selectedCountry, setSelected] = useState("SE");
+  const timezonesWithCode = getTimezonesForCountry(selectedCountry);
+  const [timezone, setTimezone] = useState(timezonesWithCode[0]);
 
+  useEffect(() => {
+    setTimezone(timezonesWithCode[0]);
+  }, [timezonesWithCode]);
   return (
     <div className="container mx-auto">
       <Header>
-        <ReactFlagsSelect
-          selected={selectedCountry}
-          searchable
-          onSelect={(code) => setSelected(code)}
-          fullWidth
-        />
+        <div className="flex">
+          <ReactFlagsSelect
+            selected={selectedCountry}
+            searchable
+            onSelect={(code) => setSelected(code)}
+            fullWidth
+          />
+          <select>
+            {timezonesWithCode.map((timezone: any, i) => (
+              <option key={i} onChange={() => setTimezone(timezone)}>
+                {timezone}
+              </option>
+            ))}
+          </select>
+        </div>
       </Header>
+      {JSON.stringify(timezonesWithCode)}
       <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {nekathData.map((item, index) => (
-          <NekathCard key={index} {...item} />
+          <NekathCard key={index} {...item} timezone={timezone} />
         ))}
       </div>
     </div>

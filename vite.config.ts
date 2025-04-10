@@ -10,5 +10,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  }, optimizeDeps: {
+    include: ['countries-and-timezones'], // 👈 forces Vite to pre-bundle it
   },
 })

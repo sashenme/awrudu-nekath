@@ -16,9 +16,10 @@ const NekathCard: React.FC<NekathCardProps> = ({
   description,
   // image,
   dateTimeUnix,
+  timezone,
 }) => {
   const convertedTime = dateTimeUnix
-    ? convertUnixToLocalTime(dateTimeUnix, "Asia/Colombo")
+    ? convertUnixToLocalTime(dateTimeUnix, timezone ?? "Asia/Colombo")
     : dateTimeUnix;
 
   return (
