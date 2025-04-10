@@ -1,24 +1,28 @@
 import React from "react";
+import { convertUnixToLocalTime } from "../utils/convertUnixToLocalTime";
 
 type NekathCardProps = {
   title: string;
   subTitle?: string;
-  date: string;
-  time?: string;
   description: string;
   image?: string;
+  timezone?: string;
+  dateTimeUnix?: number;
 };
 
 const NekathCard: React.FC<NekathCardProps> = ({
   title,
   subTitle,
-  date,
-  time,
   description,
-  image,
+  // image,
+  dateTimeUnix,
 }) => {
+  const convertedTime = dateTimeUnix
+    ? convertUnixToLocalTime(dateTimeUnix, "Asia/Colombo")
+    : dateTimeUnix;
+
   return (
-    <div className="flex flex-col gap-2 p-4 bg-[#fef9ee] rounded-xl shadow-sm border border-gray-200 max-w-sm w-full">
+    <div className="flex flex-col gap-2 p-4 bg-[#fef9ee] rounded-xl border border-gray-200 max-w-sm w-full">
       {/* {image && (
         <img
           src={image}
@@ -33,7 +37,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
       )}
 
       <span className="bg-white text-sm px-2 py-1 rounded-md w-fit border border-gray-300">
-        {date} {time && `| ${time}`}
+        {convertedTime}
       </span>
 
       <p className="text-sm text-gray-800">{description}</p>
