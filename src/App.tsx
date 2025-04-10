@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import NekathCard from "./components/NekathCard";
 import { getTimezonesForCountry } from "./utils/timezoneUtils";
 import TimezoneSelect from "./components/TimezoneSelect";
+import { useDefaultCountry } from "./hooks/useDefaultCountry";
 
 function App() {
   const nekathData = [
@@ -78,14 +79,22 @@ function App() {
       image: "/assets/planting.png",
     },
   ];
+  const country = useDefaultCountry();
 
-  const [selectedCountry, setSelected] = useState("LK");
+  const [selectedCountry, setSelected] = useState(country ?? "LK");
   const timezonesWithCode = getTimezonesForCountry(selectedCountry);
   const [timezone, setTimezone] = useState(timezonesWithCode[0]);
 
   useEffect(() => {
     setTimezone(timezonesWithCode[0]);
   }, [timezonesWithCode]);
+
+  useEffect(() => {
+    if (country) {
+      setSelected(country);
+    }
+  }, [country]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header>

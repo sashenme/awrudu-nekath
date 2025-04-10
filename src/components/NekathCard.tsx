@@ -39,9 +39,9 @@ const NekathCard: React.FC<NekathCardProps> = ({
         />
       )} */}
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-between">
         <div className="flex flex-col w-[80%] gap-2 ">
-          <h2 className="font-yaldevi text-3xl font-semibold leading-snug">
+          <h2 className="font-yaldevi text-[36px] font-semibold leading-snug">
             {title}
           </h2>
           {convertedTime.day && (
