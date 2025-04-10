@@ -29,6 +29,10 @@ const TimezoneSelect: React.FC<TimezoneSelectProps> = ({
           .map((tz) => (
             <SelectItem key={tz} value={tz}>
               {tz
+                .replace("Asia/", "")
+                .replace("Europe/", "")
+                .replace("Africa/", "")
+                .replace("Pacific/", "")
                 .replace("America/", "")
                 .replace("Australia/", "")
                 .replaceAll("_", " ")}

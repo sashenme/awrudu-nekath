@@ -36,6 +36,10 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
         <h2 className="text-md md:text-xl font-yaldevi">
           Awurudu Nekath for{" "}
           {timezone
+            .replace("Asia/", "")
+            .replace("Europe/", "")
+            .replace("Africa/", "")
+            .replace("Pacific/", "")
             .replace("America/", "")
             .replace("Australia/", "")
             .replaceAll("_", " ")}
