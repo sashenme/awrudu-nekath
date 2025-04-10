@@ -1,5 +1,7 @@
 import React from "react";
 import { convertUnixToLocalTime } from "../utils/convertUnixToLocalTime";
+import { fromUnixTime, format } from "date-fns";
+import { formatToSinhala } from "@/utils/sinhala";
 
 type NekathCardProps = {
   title: string;
@@ -19,7 +21,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
   timezone,
 }) => {
   const convertedTime = dateTimeUnix
-    ? convertUnixToLocalTime(dateTimeUnix, timezone ?? "Asia/Colombo")
+    ? formatToSinhala(dateTimeUnix, timezone ?? "Asia/Colombo")
     : dateTimeUnix;
 
   return (
@@ -38,10 +40,11 @@ const NekathCard: React.FC<NekathCardProps> = ({
       {subTitle && (
         <h3 className="text-sm text-gray-600 italic">({subTitle})</h3>
       )}
-
-      <span className="bg-white text-sm px-2 py-1 rounded-md w-fit border border-gray-300">
-        {convertedTime}
-      </span>
+      {convertedTime && (
+        <span className="bg-white text-sm px-2 py-1 rounded-md w-fit border border-gray-300">
+          {convertedTime}
+        </span>
+      )}
 
       <p className="text-sm text-gray-800">{description}</p>
     </div>

@@ -2,6 +2,7 @@
 import { format } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
 import { fromUnixTime } from "date-fns"; // ← this comes from date-fns
+import { sinhalaMonths, sinhalaWeekdays, sinhalaAMPM } from "@/utils/sinhala";
 
 /**
  * Converts a UNIX timestamp to a formatted string in the target timezone.
@@ -18,3 +19,5 @@ export function convertUnixToLocalTime(
 
   return format(zonedDate, "yyyy MMM dd, EEEE hh:mm a");
 }
+
+
