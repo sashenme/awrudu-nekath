@@ -32,7 +32,9 @@ const NekathCard: React.FC<NekathCardProps> = ({
         />
       )} */}
 
-      <h2 className="text-xl font-semibold leading-snug">{title}</h2>
+      <h2 className="font-yaldevi text-xl font-semibold leading-snug">
+        {title}
+      </h2>
       {subTitle && (
         <h3 className="text-sm text-gray-600 italic">({subTitle})</h3>
       )}

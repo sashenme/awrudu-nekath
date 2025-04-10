@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -6,7 +7,12 @@
 body {
   background-color: #fff8e4;
 }
-
+.country-selector ul {
+  min-height: 400px;
+}
+@theme {
+  --font-yaldevi: "Yaldevi", sans-serif;
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

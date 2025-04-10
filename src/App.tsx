@@ -69,7 +69,7 @@ function App() {
     },
   ];
 
-  const [selectedCountry, setSelected] = useState("SE");
+  const [selectedCountry, setSelected] = useState("LK");
   const timezonesWithCode = getTimezonesForCountry(selectedCountry);
   const [timezone, setTimezone] = useState(timezonesWithCode[0]);
 
@@ -77,14 +77,15 @@ function App() {
     setTimezone(timezonesWithCode[0]);
   }, [timezonesWithCode]);
   return (
-    <div className="container mx-auto">
+    <div className="flex flex-col min-h-screen">
       <Header>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-col sm:flex-row">
           <ReactFlagsSelect
             selected={selectedCountry}
             searchable
             onSelect={(code) => setSelected(code)}
             fullWidth
+            className="min-w-[200px] country-selector"
           />
           {timezonesWithCode.length > 1 && (
             <TimezoneSelect
@@ -95,11 +96,16 @@ function App() {
           )}
         </div>
       </Header>
-      <div className="px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {nekathData.map((item, index) => (
-          <NekathCard key={index} {...item} timezone={timezone} />
-        ))}
-      </div>
+      <main className="container mx-auto flex-grow">
+        <div className="px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {nekathData.map((item, index) => (
+            <NekathCard key={index} {...item} timezone={timezone} />
+          ))}
+        </div>
+      </main>
+      <footer className="mt-auto py-4 text-center text-sm border-t border-gray-200">
+        Made with ❤️ by <a href="https://sashen.me">Sashen</a>
+      </footer>
     </div>
   );
 }
