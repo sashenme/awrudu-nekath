@@ -1,9 +1,11 @@
-import { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <div className="container mx-auto">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
