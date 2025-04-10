@@ -6,6 +6,7 @@ import { getTimezonesForCountry } from "./utils/timezoneUtils";
 import TimezoneSelect from "./components/TimezoneSelect";
 import { useDefaultCountry } from "./hooks/useDefaultCountry";
 import nekathData from "@/data/nekath.json";
+import NekathCarousel from "./components/NekathCarosel";
 
 function App() {
   const country = useDefaultCountry();
@@ -45,7 +46,7 @@ function App() {
         </div>
       </Header>
       <main>
-        <div className="w-full overflow-x-auto">
+        {/* <div className="w-full overflow-x-auto">
           <div
             className="flex snap-x snap-mandatory gap-6 px-6 py-8 scroll-pl-6"
             style={{ scrollSnapType: "x mandatory" }}
@@ -59,7 +60,8 @@ function App() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
+        <NekathCarousel nekathData={nekathData} timezone={timezone} />
       </main>
 
       <footer className="mt-auto py-4 text-center text-sm border-t border-gray-200">
