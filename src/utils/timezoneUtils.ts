@@ -1,4 +1,4 @@
-import timezonesData from "../data/timezones.json"
+import timezonesData from "@/data/timezones.json"
 
 export const getTimezonesForCountry = (countryCode: string): string[] => {
   const entry = timezonesData.find(

@@ -3,6 +3,7 @@ import ReactFlagsSelect from "react-flags-select";
 import Header from "./components/Header";
 import NekathCard from "./components/NekathCard";
 import { getTimezonesForCountry } from "./utils/timezoneUtils";
+import TimezoneSelect from "./components/TimezoneSelect";
 
 function App() {
   const nekathData = [
@@ -78,24 +79,23 @@ function App() {
   return (
     <div className="container mx-auto">
       <Header>
-        <div className="flex">
+        <div className="flex gap-2">
           <ReactFlagsSelect
             selected={selectedCountry}
             searchable
             onSelect={(code) => setSelected(code)}
             fullWidth
           />
-          <select>
-            {timezonesWithCode.map((timezone: any, i) => (
-              <option key={i} onChange={() => setTimezone(timezone)}>
-                {timezone}
-              </option>
-            ))}
-          </select>
+          {timezonesWithCode.length > 1 && (
+            <TimezoneSelect
+              timezones={timezonesWithCode}
+              value={timezone}
+              onChange={(val) => setTimezone(val)}
+            />
+          )}
         </div>
       </Header>
-      {JSON.stringify(timezonesWithCode)}
-      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {nekathData.map((item, index) => (
           <NekathCard key={index} {...item} timezone={timezone} />
         ))}
