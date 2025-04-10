@@ -41,7 +41,7 @@ const CountdownDisplay: React.FC<CountdownDisplayProps> = ({
   }
 
   return (
-    <p className="mt-4 py-2 px-4 justify-center gap-3 rounded-full flex items-center font-yaldevi font-medium border border-[#7a121462] text-[#7A1214]">
+    <p className="mt-4 py-2 px-4 justify-center gap-3 rounded-2xl flex items-center font-yaldevi font-medium border border-[#7a121462] text-[#7A1214]">
       <Item label="දින" time={days} />
       <Item label="පැය" time={hours} />
       <Item label="මිනිත්තු" time={minutes} />

@@ -20,7 +20,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
   title,
   subTitle,
   description,
-  // image,
+  image,
   dateTimeUnix,
   timezone,
   hideDay,
@@ -34,13 +34,15 @@ const NekathCard: React.FC<NekathCardProps> = ({
       };
   return (
     <div className="flex flex-col gap-2 p-4 w-full">
-      {/* {image && (
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-48 object-contain mx-auto"
-        />
-      )} */}
+      {image && (
+        <div className="h-92 overflow-hidden rounded-2xl">
+          <img
+            src={image}
+            alt={title}
+            className="w-full object-fit mb-3 object-center"
+          />
+        </div>
+      )}
 
       <div className="flex gap-2 justify-between">
         <div className="flex flex-col w-[80%] gap-2 ">
