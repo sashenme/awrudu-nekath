@@ -2,6 +2,7 @@ import React from "react";
 import { convertUnixToLocalTime } from "../utils/convertUnixToLocalTime";
 import { fromUnixTime, format } from "date-fns";
 import { formatToSinhala } from "@/utils/sinhala";
+import CountdownDisplay from "./CountdownDisplay";
 
 type NekathCardProps = {
   title: string;
@@ -9,7 +10,7 @@ type NekathCardProps = {
   description: string;
   image?: string;
   timezone?: string;
-  dateTimeUnix?: number;
+  dateTimeUnix: number;
   hideDay?: boolean;
 };
 
@@ -47,7 +48,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
             {title}
           </h2>
           {!hideDay && convertedTime.day && (
-            <span className="font-yaldevi text-md lg:text-xl bg-white px-2 py-1 rounded-md w-fit">
+            <span className="font-yaldevi text-md lg:text-xl bg-white px-3 py-1 rounded-md w-fit">
               {convertedTime.day}
             </span>
           )}
@@ -65,6 +66,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
       <p className="mt-3 text-sm lg:text-md font-yaldevi text-gray-800">
         {description}
       </p>
+      {!hideDay && <CountdownDisplay dateTimeUnix={dateTimeUnix} />}
     </div>
   );
 };
