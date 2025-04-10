@@ -37,13 +37,13 @@ const Content: FC<Props> = ({ userTimezone, userCountry }) => {
   return (
     <>
       <Header>
-        <div className="flex gap-2 flex-col sm:flex-row">
+        <div className="flex gap-2 px-2">
           <ReactFlagsSelect
             selected={selectedCountry}
             searchable
             onSelect={(code) => onCountrySelect(code)}
             fullWidth
-            className="min-w-[200px] userCountry-selector"
+            className="sm:min-w-[200px] country-selector"
           />
           {countryTimezones.length > 1 && (
             <TimezoneSelect

@@ -19,7 +19,7 @@ const TimezoneSelect: React.FC<TimezoneSelectProps> = ({
 }) => {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-[200px] py-4 border-[#c8c4b6] shadow-none">
+      <SelectTrigger className="w-full sm:w-[200px] py-4 border-[#c8c4b6] shadow-none">
         <SelectValue placeholder="Select timezone" />
       </SelectTrigger>
       <SelectContent>
