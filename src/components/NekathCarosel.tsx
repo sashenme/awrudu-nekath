@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import NekathCard from "./NekathCard";
+import { getCountryName } from "@/utils/timezoneUtils";
 
 interface NekathItem {
   dateTimeUnix: number;
@@ -13,9 +14,10 @@ interface NekathItem {
 interface Props {
   nekathData: NekathItem[];
   timezone: string;
+  country: string;
 }
 
-const NekathCarousel: React.FC<Props> = ({ nekathData, timezone }) => {
+const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -30,19 +32,29 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone }) => {
   return (
     <div className="w-full space-y-4">
       {/* Buttons row at the top */}
-      <div className="container mx-auto flex justify-end gap-4 ">
-        <button
-          onClick={() => scroll("left")}
-          className="p-2 bg-white border rounded-full shadow"
-        >
-          <ArrowLeft />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          className="p-2 bg-white border rounded-full shadow"
-        >
-          <ArrowRight />
-        </button>
+      <div className="container mx-auto flex justify-between gap-4 items-center px-4 ">
+        <h2 className="text-md md:text-xl font-yaldevi">
+          Awurudu Nekath for{" "}
+          {timezone
+            .replace("America/", "")
+            .replace("Australia/", "")
+            .replaceAll("_", " ")}
+          , {getCountryName(country)}
+        </h2>
+        <div className="flex gap-4">
+          <button
+            onClick={() => scroll("left")}
+            className="p-2 bg-white border rounded-full shadow"
+          >
+            <ArrowLeft />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="p-2 bg-white border rounded-full shadow"
+          >
+            <ArrowRight />
+          </button>
+        </div>
       </div>
 
       {/* Scrollable carousel */}

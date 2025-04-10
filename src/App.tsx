@@ -46,22 +46,11 @@ function App() {
         </div>
       </Header>
       <main>
-        {/* <div className="w-full overflow-x-auto">
-          <div
-            className="flex snap-x snap-mandatory gap-6 px-6 py-8 scroll-pl-6"
-            style={{ scrollSnapType: "x mandatory" }}
-          >
-            {nekathData.map((item, index) => (
-              <div
-                key={index}
-                className="snap-start shrink-0 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[33%] xl:w-[24%]"
-              >
-                <NekathCard {...item} timezone={timezone} />
-              </div>
-            ))}
-          </div>
-        </div> */}
-        <NekathCarousel nekathData={nekathData} timezone={timezone} />
+        <NekathCarousel
+          country={selectedCountry}
+          nekathData={nekathData}
+          timezone={timezone}
+        />
       </main>
 
       <footer className="mt-auto py-4 text-center text-sm border-t border-gray-200">
