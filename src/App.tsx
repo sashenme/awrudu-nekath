@@ -9,11 +9,13 @@ import nekathData from "@/data/nekath.json";
 import NekathCarousel from "./components/NekathCarosel";
 
 function App() {
-  const country = useDefaultCountry();
+  const { country, userTimezone } = useDefaultCountry();
 
   const [selectedCountry, setSelected] = useState(country ?? "LK");
   const timezonesWithCode = getTimezonesForCountry(selectedCountry);
-  const [timezone, setTimezone] = useState(timezonesWithCode[0]);
+  const [timezone, setTimezone] = useState(
+    userTimezone ? userTimezone : timezonesWithCode[0]
+  );
 
   useEffect(() => {
     setTimezone(timezonesWithCode[0]);
@@ -52,7 +54,6 @@ function App() {
           timezone={timezone}
         />
       </main>
-
       <footer className="mt-auto py-4 text-center text-sm border-t border-gray-200">
         Made with ❤️ by <a href="https://sashen.me">Sashen</a>
       </footer>
