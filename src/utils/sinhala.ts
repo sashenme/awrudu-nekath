@@ -34,7 +34,7 @@ export const sinhalaAMPM = {
 export const formatToSinhala = (
   unixTime: number,
   timezone: string
-): string => {
+): { month: string, date: string, day: string } => {
   const date = fromUnixTime(unixTime);
   const formatter = new Intl.DateTimeFormat("en-US", {
     timeZone: timezone,
@@ -57,6 +57,6 @@ export const formatToSinhala = (
   const month = sinhalaMonths[map.month as keyof typeof sinhalaMonths] ?? map.month;
   const weekday = sinhalaWeekdays[map.weekday as keyof typeof sinhalaWeekdays] ?? map.weekday;
   const period = sinhalaAMPM[map.dayPeriod as keyof typeof sinhalaAMPM] ?? map.dayPeriod;
-
-  return `${map.year} ${month} ${map.day} වන ${weekday} ${period} ${map.hour}:${map.minute} `;
+  const the = `${map.year} ${month} ${map.day} වන `
+  return { month: month, date: map.day, day: `${weekday}, ${period} ${map.hour}:${map.minute}` };
 };

@@ -12,6 +12,8 @@ type NekathCardProps = {
   dateTimeUnix?: number;
 };
 
+type SinhalaTime = { month: string; date: string; day: string };
+
 const NekathCard: React.FC<NekathCardProps> = ({
   title,
   subTitle,
@@ -20,12 +22,15 @@ const NekathCard: React.FC<NekathCardProps> = ({
   dateTimeUnix,
   timezone,
 }) => {
-  const convertedTime = dateTimeUnix
+  const convertedTime: SinhalaTime = dateTimeUnix
     ? formatToSinhala(dateTimeUnix, timezone ?? "Asia/Colombo")
-    : dateTimeUnix;
-
+    : {
+        month: "",
+        date: "",
+        day: "",
+      };
   return (
-    <div className="flex flex-col gap-2 p-4 bg-[#fef9ee] rounded-xl border border-gray-200 max-w-sm w-full">
+    <div className="flex flex-col gap-2 p-4 w-full">
       {/* {image && (
         <img
           src={image}
@@ -34,19 +39,28 @@ const NekathCard: React.FC<NekathCardProps> = ({
         />
       )} */}
 
-      <h2 className="font-yaldevi text-xl font-semibold leading-snug">
-        {title}
-      </h2>
-      {subTitle && (
-        <h3 className="text-sm text-gray-600 italic">({subTitle})</h3>
-      )}
-      {convertedTime && (
-        <span className="bg-white text-sm px-2 py-1 rounded-md w-fit border border-gray-300">
-          {convertedTime}
-        </span>
-      )}
+      <div className="flex gap-2">
+        <div className="flex flex-col w-[80%] gap-2 ">
+          <h2 className="font-yaldevi text-3xl font-semibold leading-snug">
+            {title}
+          </h2>
+          {convertedTime.day && (
+            <span className="font-yaldevi text-xl bg-white px-2 py-1 rounded-md w-fit">
+              {convertedTime.day}
+            </span>
+          )}
+        </div>
 
-      <p className="text-sm text-gray-800">{description}</p>
+        <div className="flex flex-col text-center">
+          <span className="font-yaldevi">{convertedTime?.month}</span>
+          <span className="text-4xl font-semibold">{convertedTime?.date}</span>
+        </div>
+      </div>
+      {/* {subTitle && (
+        <h3 className="text-sm text-gray-600 italic">({subTitle})</h3>
+      )} */}
+
+      <p className="mt-3 text-md font-yaldevi text-gray-800">{description}</p>
     </div>
   );
 };
