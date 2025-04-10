@@ -10,6 +10,7 @@ type NekathCardProps = {
   image?: string;
   timezone?: string;
   dateTimeUnix?: number;
+  hideDay?: boolean;
 };
 
 type SinhalaTime = { month: string; date: string; day: string };
@@ -21,6 +22,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
   // image,
   dateTimeUnix,
   timezone,
+  hideDay,
 }) => {
   const convertedTime: SinhalaTime = dateTimeUnix
     ? formatToSinhala(dateTimeUnix, timezone ?? "Asia/Colombo")
@@ -41,11 +43,11 @@ const NekathCard: React.FC<NekathCardProps> = ({
 
       <div className="flex gap-2 justify-between">
         <div className="flex flex-col w-[80%] gap-2 ">
-          <h2 className="font-yaldevi text-[36px] font-semibold leading-snug">
+          <h2 className="font-yaldevi text-2xl lg:text-[36px] font-semibold leading-snug">
             {title}
           </h2>
-          {convertedTime.day && (
-            <span className="font-yaldevi text-xl bg-white px-2 py-1 rounded-md w-fit">
+          {!hideDay && convertedTime.day && (
+            <span className="font-yaldevi text-md lg:text-xl bg-white px-2 py-1 rounded-md w-fit">
               {convertedTime.day}
             </span>
           )}
@@ -60,7 +62,9 @@ const NekathCard: React.FC<NekathCardProps> = ({
         <h3 className="text-sm text-gray-600 italic">({subTitle})</h3>
       )} */}
 
-      <p className="mt-3 text-md font-yaldevi text-gray-800">{description}</p>
+      <p className="mt-3 text-sm lg:text-md font-yaldevi text-gray-800">
+        {description}
+      </p>
     </div>
   );
 };

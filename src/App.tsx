@@ -12,9 +12,9 @@ function App() {
       title: "නව සඳ බැලීම",
       subTitle: "New Year Dawning",
       dateTimeUnix: 1743344000,
-      onlyDay: true,
+      hideDay: true,
       description:
-        "අභිනව චන්ද්‍ර වර්ෂය සඳහා මාර්තු 30 වනදාද අභිනව සූර්ය වර්ෂය සඳහා මැයි 01වනදාද නව සඳ බැලීම මැනවී.",
+        "අභිනව චන්ද්‍ර වර්ෂය සඳහා මාර්තු 30 වනදාද අභිනව සූර්ය වර්ෂය සඳහා මැයි 01 වනදා ද නව සඳ බැලීම මැනවී.",
       image: "/assets/new-year.png",
     },
     {
@@ -115,8 +115,8 @@ function App() {
           )}
         </div>
       </Header>
-      <main className="container mx-auto flex-grow">
-        <div className="px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <main className="container mx-auto flex-grow pb-20">
+        <div className="px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 gap-y-10 lg:gap-12">
           {nekathData.map((item, index) => (
             <NekathCard key={index} {...item} timezone={timezone} />
           ))}
