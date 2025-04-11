@@ -13,22 +13,22 @@ interface Props {
 }
 const Content: FC<Props> = ({ userTimezone, userCountry }) => {
   const [selectedCountry, setSelected] = useState(userCountry);
-  const timezonesWithCode = getTimezonesForCountry(selectedCountry);
 
   const [timezone, setTimezone] = useState(userTimezone);
-  const [countryTimezones, setCountryTimezones] =
-    useState<string[]>(timezonesWithCode);
+  const [countryTimezones, setCountryTimezones] = useState<string[]>([]);
 
   useEffect(() => {
     if (userCountry) {
       setSelected(userCountry);
-      const timezonesWithCode = getTimezonesForCountry(selectedCountry);
+      const timezonesWithCode = getTimezonesForCountry(userCountry);
 
       setCountryTimezones(timezonesWithCode);
     }
   }, [userCountry]);
 
   const onCountrySelect = (code: string) => {
+    const timezonesWithCode = getTimezonesForCountry(code);
+
     setSelected(code);
     setCountryTimezones(timezonesWithCode);
     setTimezone(timezonesWithCode[0]);
@@ -38,19 +38,25 @@ const Content: FC<Props> = ({ userTimezone, userCountry }) => {
     <>
       <Header>
         <div className="flex gap-2 px-2">
-          <ReactFlagsSelect
-            selected={selectedCountry}
-            searchable
-            onSelect={(code) => onCountrySelect(code)}
-            fullWidth
-            className="sm:min-w-[200px] country-selector"
-          />
-          {countryTimezones.length > 1 && (
-            <TimezoneSelect
-              timezones={countryTimezones}
-              value={timezone}
-              onChange={(val) => setTimezone(val)}
+          <label htmlFor="country">
+            <span className="text-sm text-neutral-500">Select country</span>
+            <ReactFlagsSelect
+              selected={selectedCountry}
+              searchable
+              onSelect={(code) => onCountrySelect(code)}
+              fullWidth
+              className="sm:min-w-[200px] country-selector"
             />
+          </label>
+          {countryTimezones.length > 1 && (
+            <label htmlFor="country">
+              <span className="text-sm text-neutral-500">Select timezone</span>
+              <TimezoneSelect
+                timezones={countryTimezones}
+                value={timezone}
+                onChange={(val) => setTimezone(val)}
+              />
+            </label>
           )}
         </div>
       </Header>

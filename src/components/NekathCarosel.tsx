@@ -48,13 +48,13 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
         <div className="flex gap-4">
           <button
             onClick={() => scroll("left")}
-            className="p-2 bg-white border rounded-full shadow"
+            className="cursor-pointer p-2 bg-white border rounded-full shadow"
           >
             <ArrowLeft />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="p-2 bg-white border rounded-full shadow"
+            className="cursor-pointer p-2 bg-white border rounded-full shadow"
           >
             <ArrowRight />
           </button>

@@ -9,7 +9,7 @@ function App() {
       {country && userTimezone && (
         <Content userCountry={country} userTimezone={userTimezone} />
       )}
-      {!country && <Content userCountry={"LK"} userTimezone={"Asia/Colombo"} />}
+      {/* {!country && <Content userCountry={"LK"} userTimezone={"Asia/Colombo"} />} */}
       <footer className="mt-auto py-4 text-center text-sm border-t border-gray-200">
         Made with ❤️ by <a href="https://sashen.me">Sashen</a>
       </footer>

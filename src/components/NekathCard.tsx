@@ -36,7 +36,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
     <div className="flex flex-col gap-2 w-full">
       {image && (
         <div
-          className="h-92 overflow-hidden rounded-2xl bg-slate-100 bg-cover"
+          className="h-92 sm:h-auto overflow-hidden rounded-2xl bg-slate-100 bg-cover"
           style={{
             backgroundImage: `url(${image.replace(
               "assets/",
