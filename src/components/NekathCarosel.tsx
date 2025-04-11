@@ -66,7 +66,7 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
         className="w-full overflow-x-auto scroll-smooth mb-6"
         ref={scrollRef}
       >
-        <div className="flex snap-x snap-mandatory gap-8 md:gap-12 px-8  scroll-pl-6">
+        <div className="flex snap-x snap-mandatory gap-8 md:gap-12 px-4 sm:px-8  scroll-pl-2 sm:scroll-pl-6">
           {nekathData.map((item, index) => (
             <div
               key={index}
@@ -75,6 +75,7 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
               <NekathCard {...item} timezone={timezone} />
             </div>
           ))}
+          <div className="px-2"></div>
         </div>
       </div>
     </div>
