@@ -8,26 +8,21 @@
       "අභිනව චන්ද්‍ර වර්ෂය සඳහා මාර්තු 30 වනදාද අභිනව සූර්ය වර්ෂය සඳහා මැයි 01 වනදා ද නව සඳ බැලීම මැනවී.",
     "image": "/assets/new-moon.webp"
   },
+  
   {
-    "title": "අළුත් අවුරුද්ද උදාව",
+    "title": "පුණ්‍ය කාලය",
+    "subTitle": "Start of Nonagathaya",
+    "dateTimeUnix": 1744558020,
+    "dateTimeEndUnix": 1744604100,
+    "description": "START_DATE සිට එනම් පසුදින END_DATE දක්වා පුණ්‍ය කාලයි බැවින් START_DATE පළමුව ආහාර පාන ගෙන සියලු වැඩ අත්හැර ආගමික වතාවත් වල යෙදීම මැනවි.",
+    "image": "/assets/nonagathaya.webp"
+  },
+  {
+    "title": "අලුත් අවුරුදු උදාව",
     "subTitle": "New Year Dawning",
     "dateTimeUnix": 1744581060,
     "description": "සිංහල අලුත් අවුරුද්ද උදා වේ.",
     "image": "/assets/fire-crakers.webp"
-  },
-  {
-    "title": "පුණ්‍ය කාලය ආරම්භය",
-    "subTitle": "Start of Nonagathaya",
-    "dateTimeUnix": 1744558020,
-    "description": "පුණ්‍ය කාලය ආරම්භ වේ.",
-    "image": "/assets/nonagathaya-start.webp"
-  },
-  {
-    "title": "පුණ්‍ය කාලය අවසානය",
-    "subTitle": "End of Nonagathaya",
-    "dateTimeUnix": 1744604100,
-    "description": "පුණ්‍ය කාලය අවසන් වේ.",
-    "image": "/assets/nonagathaya.webp"
   },
   {
     "title": "ආහාර පිසීම",
@@ -38,7 +33,7 @@
     "image": "/assets/cooking.webp"
   },
   {
-    "title": "වැඩ ඇල්ලීම හා ආහාර අනුභවය",
+    "title": "වැඩ ඇල්ලීම, ආහාර අනුභවය",
     "subTitle": "Commencing Work",
     "dateTimeUnix": 1744593240,
     "description":

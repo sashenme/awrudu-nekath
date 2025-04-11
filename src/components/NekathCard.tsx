@@ -11,6 +11,7 @@ type NekathCardProps = {
   image?: string;
   timezone?: string;
   dateTimeUnix: number;
+  dateTimeEndUnix?: number;
   hideDay?: boolean;
 };
 
@@ -22,6 +23,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
   description,
   image,
   dateTimeUnix,
+  dateTimeEndUnix,
   timezone,
   hideDay,
 }) => {
@@ -32,6 +34,27 @@ const NekathCard: React.FC<NekathCardProps> = ({
         date: "",
         day: "",
       };
+
+  const formatNonagathaya = () => {
+    if (!dateTimeEndUnix) return description;
+    const formattedStart = formatToSinhala(
+      dateTimeUnix,
+      timezone ?? "Asia/Colombo"
+    );
+    const formattedEnd = formatToSinhala(
+      dateTimeEndUnix,
+      timezone ?? "Asia/Colombo"
+    );
+    const descriptionFormatted = description
+      .replace(
+        /START_DATE/g,
+        `${formattedStart.month} ${formattedStart.date}  ${formattedStart.day} `
+      )
+      .replace(/END_DATE/g, `${formattedEnd.date}  ${formattedEnd.day} `);
+
+    return descriptionFormatted;
+  };
+
   return (
     <div className="flex flex-col gap-2 w-full">
       {image && (
@@ -74,7 +97,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
       )} */}
 
       <p className="mt-3 text-sm lg:text-md font-yaldevi text-gray-800">
-        {description}
+        {formatNonagathaya()}
       </p>
       {!hideDay && <CountdownDisplay dateTimeUnix={dateTimeUnix} />}
     </div>
