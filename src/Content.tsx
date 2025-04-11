@@ -6,6 +6,7 @@ import TimezoneSelect from "@/components/TimezoneSelect";
 import { useDefaultCountry } from "@/hooks/useDefaultCountry";
 import nekathData from "@/data/nekath.json";
 import NekathCarousel from "@/components/NekathCarosel";
+import { trackGAEvent } from "./utils/analytics";
 
 interface Props {
   userTimezone: string;
@@ -32,6 +33,8 @@ const Content: FC<Props> = ({ userTimezone, userCountry }) => {
     setSelected(code);
     setCountryTimezones(timezonesWithCode);
     setTimezone(timezonesWithCode[0]);
+
+    trackGAEvent("country_changed", { country_code: code });
   };
 
   return (
