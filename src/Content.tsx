@@ -39,7 +39,7 @@ const Content: FC<Props> = ({ userTimezone, userCountry }) => {
       <Header>
         <div className="flex gap-2 px-2">
           <label htmlFor="country">
-            <span className="text-sm text-neutral-500">Select country</span>
+            <span className="text-sm text-neutral-500">Select Country</span>
             <ReactFlagsSelect
               selected={selectedCountry}
               searchable
@@ -50,7 +50,7 @@ const Content: FC<Props> = ({ userTimezone, userCountry }) => {
           </label>
           {countryTimezones.length > 1 && (
             <label htmlFor="country">
-              <span className="text-sm text-neutral-500">Select timezone</span>
+              <span className="text-sm text-neutral-500">Select Timezone</span>
               <TimezoneSelect
                 timezones={countryTimezones}
                 value={timezone}

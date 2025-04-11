@@ -70,7 +70,7 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
           {nekathData.map((item, index) => (
             <div
               key={index}
-              className="snap-start shrink-0 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[33%] xl:w-[24%]"
+              className="snap-start shrink-0 w-[90%] sm:w-[50%] md:w-[30%] lg:w-[22%] xl:w-[17%]"
             >
               <NekathCard {...item} timezone={timezone} />
             </div>
