@@ -1,6 +1,7 @@
 import { useDefaultCountry } from "./hooks/useDefaultCountry";
 import Content from "@/Content";
 import buymecoffee from "@/assets/buymecoffee_logo.svg";
+import { trackGAEvent } from "./utils/analytics";
 
 function App() {
   const { country, userTimezone } = useDefaultCountry();
@@ -17,6 +18,9 @@ function App() {
           className="pt-2 block"
           target="_blank"
           href="https://buymeacoffee.com/sashenme"
+          onClick={() =>
+            trackGAEvent("buy_me_coffee", { buy_me_coffee_clicked: true })
+          }
         >
           <img
             className="mx-auto max-w-[120px]"
