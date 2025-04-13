@@ -28,25 +28,32 @@ const Item: React.FC<ItemProps> = ({ label, time }) => {
 
 type CountdownDisplayProps = {
   dateTimeUnix: number;
+  endText?: string;
 };
 
 const CountdownDisplay: React.FC<CountdownDisplayProps> = ({
   dateTimeUnix,
+  endText,
 }) => {
   const { days, hours, minutes, seconds, isFinished } =
     useCountdown(dateTimeUnix);
 
   if (isFinished) {
-    return <p className="text-[#7A1214] text-sm">නැකත දින අවසන් වී ඇත</p>;
+    return <p className="text-[#7A1214] text-sm">{"නැකත අවසන් වී ඇත"}</p>;
   }
 
   return (
-    <p className="mt-4 py-2 px-4 justify-center gap-3 rounded-2xl flex items-center font-yaldevi font-medium border border-[#7a121462] text-[#7A1214]">
-      <Item label="දින" time={days} />
-      <Item label="පැය" time={hours} />
-      <Item label="මිනිත්තු" time={minutes} />
-      <Item label="තත්පර" time={seconds} />
-    </p>
+    <>
+      {!isFinished && endText && (
+        <p className="text-[#7A1214] text-sm -mb-4 mt-3">{endText}</p>
+      )}
+      <p className="mt-4 py-2 px-4 justify-center gap-3 rounded-2xl flex items-center font-yaldevi font-medium border border-[#7a121462] text-[#7A1214]">
+        <Item label="දින" time={days} />
+        <Item label="පැය" time={hours} />
+        <Item label="මිනිත්තු" time={minutes} />
+        <Item label="තත්පර" time={seconds} />
+      </p>
+    </>
   );
 };
 

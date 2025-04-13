@@ -99,7 +99,17 @@ const NekathCard: React.FC<NekathCardProps> = ({
       <p className="mt-3 text-sm lg:text-md font-yaldevi text-gray-800">
         {formatNonagathaya()}
       </p>
-      {!hideDay && <CountdownDisplay dateTimeUnix={dateTimeUnix} />}
+
+      {!hideDay && (
+        <CountdownDisplay
+          endText={subTitle === "Nonagathaya" ? "පුණ්‍ය කාලය අවසන් වීමට" : ""}
+          dateTimeUnix={
+            subTitle === "Nonagathaya"
+              ? (dateTimeEndUnix as number)
+              : dateTimeUnix
+          }
+        />
+      )}
     </div>
   );
 };
