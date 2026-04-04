@@ -1,67 +1,67 @@
 [
   {
     "title": "නව සඳ බැලීම",
-    "subTitle": "New mooon",
-    "dateTimeUnix": 1743344000,
+    "subTitle": "New Moon",
+    "dateTimeUnix": 1774032959,
     "hideDay": true,
     "description":
-      "අභිනව චන්ද්‍ර වර්ෂය සඳහා මාර්තු 30 වනදාද අභිනව සූර්ය වර්ෂය සඳහා මැයි 01 වනදා ද නව සඳ බැලීම මැනවී.",
+      "අභිනව චන්ද්‍ර වර්ෂය සඳහා මාර්තු 20 වනදාද අභිනව සූර්ය වර්ෂය සඳහා අප්‍රේල් 19 වනදා ද නව සඳ බැලීම මැනවී.",
     "image": "/assets/new-moon.webp"
   },
-  
   {
-    "title": "පුණ්‍ය කාලය",
-    "subTitle": "Nonagathaya",
-    "dateTimeUnix": 1744558020,
-    "dateTimeEndUnix": 1744604100,
-    "description": "START_DATE සිට එනම් පසුදින END_DATE දක්වා පුණ්‍ය කාලය බැවින් START_DATE පළමුව ආහාර පාන ගෙන සියලු වැඩ අත්හැර ආගමික වතාවත් වල යෙදීම මැනවි.",
-    "image": "/assets/nonagathaya.webp"
+    "title": "පරණ අවුරුද්ද සඳහා ස්නානය කිරීම",
+    "subTitle": "Old Year Bathing",
+    "dateTimeUnix": 1776040200,
+    "hideDay": true,
+    "description":
+      "අප්‍රේල් 13 වන සඳුදා දිවුල් පත් යුෂ මිශ්‍ර නානු ගා ස්නානය කොට ඉෂ්ට දේවතා අනුස්මරණයේ යෙදී වාසය මැනවී.",
+    "image": "/assets/new-moon.webp"
   },
   {
     "title": "අලුත් අවුරුදු උදාව",
     "subTitle": "New Year Dawning",
-    "dateTimeUnix": 1744581060,
+    "dateTimeUnix": 1776139320,
     "description": "සිංහල අලුත් අවුරුද්ද උදා වේ.",
     "image": "/assets/fire-crakers.webp"
   },
   {
+    "title": "පුණ්‍ය කාලය",
+    "subTitle": "Nonagathaya",
+    "dateTimeUnix": 1776116280,
+    "dateTimeEndUnix": 1776162360,
+    "description": "START_DATE සිට එනම් පසුදින END_DATE දක්වා පුණ්‍ය කාලය බැවින් START_DATE පළමුව ආහාර පාන ගෙන සියලු වැඩ අත්හැර ආගමික වතාවත් වල යෙදීම මැනවි.",
+    "image": "/assets/nonagathaya.webp"
+  },
+  {
     "title": "ආහාර පිසීම",
     "subTitle": "Cooking Meals",
-    "dateTimeUnix": 1744583640,
+    "dateTimeUnix": 1776143460,
     "description":
-      "තඹ වර්ණ වස්ත්‍රාභරණයෙන් සැරසී දකුණු දිශාව බලා ලිප් බැද ගිණි මොළවා කිරිබතක් ද කැවිලි වර්ගයක්ද දී කිරි හා විළඳ ද පිළියෙල කර ගැනීම මැනවි.",
+      "රක්ත වර්ණ වස්ත්‍රාභරණයෙන් සැරසී දකුණු දිශාව බලා ලිප් බැද ගිණි මොළවා කිරිබතක් ද, කැවිලි වර්ගයක් ද, දී කිරි විළඳ ද පිළියෙල කර ගැනීම මැනවි.",
     "image": "/assets/cooking.webp"
   },
   {
-    "title": "වැඩ ඇල්ලීම, ආහාර අනුභවය",
+    "title": "වැඩ ඇල්ලීම, ගනුදෙනු කිරීම හා ආහාර අනුභවය",
     "subTitle": "Commencing Work",
-    "dateTimeUnix": 1744593240,
+    "dateTimeUnix": 1776148500,
     "description":
-      "මුතු හා ස්වේත වර්ණ වස්ත්‍රාභරණයෙන් සැරසී දකුණු දිශාව බලා සියළු වැඩ අල්ලා ගනුදෙනු කොට ආහාර අනුභවය මැනවි.",
+      "රක්ත වර්ණ වස්ත්‍රාභරණයෙන් සැරසී දකුණු දිශාව බලා සියලු වැඩ අල්ලා ගනුදෙනු කොට ආහාර අනුභවය මැනවි.",
     "image": "/assets/activities.webp"
   },
   {
     "title": "හිස තෙල් ගෑම",
     "subTitle": "Anointing Oil",
-    "dateTimeUnix": 1744774440,
+    "dateTimeUnix": 1776216240,
     "description":
-      "පච්ච වර්ණ හෙවත් කොළ පැහැති වස්ත්‍රාභරණයෙන් සැරසී උතුරු දිශාව බලා හිසට කොහොඹ පත්ද, පයට කොළොන් පත්ද තබා කොහොඹ පත් යුෂ මිශ්‍ර නානුද තෙල්ද ගා ස්නානය කිරීම මැනවි.",
+      "නැගෙනහිර දිශාව බලා හිසට කොහොඹ පත් ද, පයට කොළොන් පත් ද තබා කොහොඹ පත් යුෂ මිශ්‍ර නානු ද තෙල් ද ගා ස්නානය කිරීම මැනවි.",
     "image": "/assets/anointing.webp"
   },
   {
-    "title": "රැකී රක්ෂා පිටත්ව යාම",
+    "title": "රැකී රක්ෂා සඳහා පිටත්ව යාම",
     "subTitle": "Leaving for Work",
-    "dateTimeUnix": 1744860780,
+    "dateTimeUnix": 1776646620,
     "description":
-      "රන්වන් පැහැති වස්ත්‍රාභරණයෙන් උතුරු දිශාව බලා පිටත්ව යාම මැනවි.",
+      "ශ්වේත වර්ණ වස්ත්‍රාභරණයෙන් සැරසී කිරිබත් හා ඇල්කිරි මිශ්‍ර කැවිලි ද අනුභව කර දකුණු දිශාව බලා පිටත්ව යාම මැනවි.",
     "image": "/assets/leaving-work.webp"
-  },
-  {
-    "title": "පැළ සිටුවීම",
-    "subTitle": "Planting",
-    "dateTimeUnix": 1744951560,
-    "description":
-      "විචිත්‍ර වර්ණ වස්ත්‍රාභරණයෙන් නැගෙනහිර දිශාව බලා පැළ සිටුවීම මැනවි.",
-    "image": "/assets/planting.webp"
   }
 ]
