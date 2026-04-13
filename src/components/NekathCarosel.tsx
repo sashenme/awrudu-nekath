@@ -67,7 +67,7 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
         ref={scrollRef}
       >
         <div className="flex snap-x snap-mandatory gap-8 md:gap-12 px-4 sm:px-8  scroll-pl-2 sm:scroll-pl-6">
-          {nekathData.map((item, index) => (
+          {[...nekathData].sort((a, b) => a.dateTimeUnix - b.dateTimeUnix).map((item, index) => (
             <div
               key={index}
               className="snap-start shrink-0 w-[90%] sm:w-[50%] md:w-[30%] lg:w-[22%] xl:w-[17%]"
