@@ -27,8 +27,15 @@ const NekathCard: React.FC<NekathCardProps> = ({
   timezone,
   hideDay,
 }) => {
-  const convertedTime: SinhalaTime = dateTimeUnix
-    ? formatToSinhala(dateTimeUnix, timezone ?? "Asia/Colombo")
+  const isNonagathaya = subTitle === "Nonagathaya";
+  const now = Math.floor(Date.now() / 1000);
+  const displayUnix =
+    isNonagathaya && dateTimeEndUnix && now > dateTimeUnix
+      ? dateTimeEndUnix
+      : dateTimeUnix;
+
+  const convertedTime: SinhalaTime = displayUnix
+    ? formatToSinhala(displayUnix, timezone ?? "Asia/Colombo")
     : {
         month: "",
         date: "",
@@ -39,16 +46,16 @@ const NekathCard: React.FC<NekathCardProps> = ({
     if (!dateTimeEndUnix) return description;
     const formattedStart = formatToSinhala(
       dateTimeUnix,
-      timezone ?? "Asia/Colombo"
+      timezone ?? "Asia/Colombo",
     );
     const formattedEnd = formatToSinhala(
       dateTimeEndUnix,
-      timezone ?? "Asia/Colombo"
+      timezone ?? "Asia/Colombo",
     );
     const descriptionFormatted = description
       .replace(
         /START_DATE/g,
-        `${formattedStart.month} ${formattedStart.date}  ${formattedStart.day} `
+        `${formattedStart.month} ${formattedStart.date}  ${formattedStart.day} `,
       )
       .replace(/END_DATE/g, `${formattedEnd.date}  ${formattedEnd.day} `);
 
@@ -63,7 +70,7 @@ const NekathCard: React.FC<NekathCardProps> = ({
           style={{
             backgroundImage: `url(${image.replace(
               "assets/",
-              "assets/small/"
+              "assets/small/",
             )})`,
           }}
         >
@@ -102,12 +109,8 @@ const NekathCard: React.FC<NekathCardProps> = ({
 
       {!hideDay && (
         <CountdownDisplay
-          endText={subTitle === "Nonagathaya" ? "පුණ්‍ය කාලය අවසන් වීමට" : ""}
-          dateTimeUnix={
-            subTitle === "Nonagathaya"
-              ? (dateTimeEndUnix as number)
-              : dateTimeUnix
-          }
+          endText={isNonagathaya && now > dateTimeUnix ? "පුණ්‍ය කාලය අවසන් වීමට" : ""}
+          dateTimeUnix={displayUnix}
         />
       )}
     </div>
