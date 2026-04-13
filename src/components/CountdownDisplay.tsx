@@ -1,13 +1,28 @@
+import { useEffect, useRef, useState } from "react";
 import { useCountdown } from "@/hooks/useCountdown";
 
 type DateTagProps = {
-  children: React.ReactNode;
+  value: number;
 };
 
-const DateTag: React.FC<DateTagProps> = ({ children }) => {
+const DateTag: React.FC<DateTagProps> = ({ value }) => {
+  const prevRef = useRef(value);
+  const [flipping, setFlipping] = useState(false);
+
+  useEffect(() => {
+    if (prevRef.current !== value) {
+      prevRef.current = value;
+      setFlipping(true);
+      const t = setTimeout(() => setFlipping(false), 300);
+      return () => clearTimeout(t);
+    }
+  }, [value]);
+
   return (
-    <span className="font-inter font-semibold text-xl md:text-3xl px-1">
-      {children}
+    <span
+      className={`font-inter font-semibold text-xl md:text-3xl px-1 inline-block${flipping ? " number-flip" : ""}`}
+    >
+      {value}
     </span>
   );
 };
@@ -21,7 +36,7 @@ const Item: React.FC<ItemProps> = ({ label, time }) => {
   return (
     <span className="flex gap-2 gap-y-0 items-center flex-wrap justify-around">
       <span className="text-xs md:text-base ">{label}</span>
-      <DateTag>{time}</DateTag>
+      <DateTag value={time} />
     </span>
   );
 };

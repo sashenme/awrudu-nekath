@@ -29,6 +29,16 @@ const NekathCard: React.FC<NekathCardProps> = ({
 }) => {
   const isNonagathaya = subTitle === "Nonagathaya";
   const now = Math.floor(Date.now() / 1000);
+
+  const isPast =
+    now > (isNonagathaya && dateTimeEndUnix ? dateTimeEndUnix : dateTimeUnix);
+  const isActive =
+    !isPast &&
+    now >= dateTimeUnix &&
+    (isNonagathaya
+      ? !!dateTimeEndUnix && now <= dateTimeEndUnix
+      : now < dateTimeUnix + 3600);
+
   const displayUnix =
     isNonagathaya && dateTimeEndUnix && now > dateTimeUnix
       ? dateTimeEndUnix
@@ -63,10 +73,24 @@ const NekathCard: React.FC<NekathCardProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="relative flex flex-col gap-2 w-full rounded-2xl transition-shadow duration-300">
+      {isPast && (
+        <span className="absolute top-2 left-2 z-10 text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-200/90 text-gray-500 backdrop-blur-sm font-inter">
+          අවසන්!
+        </span>
+      )}
+      {isActive && (
+        <span className="absolute top-2 left-2 z-10 flex items-center gap-1.5 text-xs font-semibold px-2 py-0.5 rounded-full bg-green-100/90 text-green-700 backdrop-blur-sm font-inter">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600" />
+          </span>
+          දැන් තමයි නැකත!
+        </span>
+      )}
       {image && (
         <div
-          className="h-92 sm:h-auto overflow-hidden rounded-2xl bg-slate-100 bg-cover"
+          className="h-92 sm:h-90 overflow-hidden rounded-2xl bg-slate-100 bg-cover bg-center"
           style={{
             backgroundImage: `url(${image.replace(
               "assets/",
@@ -109,7 +133,9 @@ const NekathCard: React.FC<NekathCardProps> = ({
 
       {!hideDay && (
         <CountdownDisplay
-          endText={isNonagathaya && now > dateTimeUnix ? "පුණ්‍ය කාලය අවසන් වීමට" : ""}
+          endText={
+            isNonagathaya && now > dateTimeUnix ? "පුණ්‍ය කාලය අවසන් වීමට" : ""
+          }
           dateTimeUnix={displayUnix}
         />
       )}
