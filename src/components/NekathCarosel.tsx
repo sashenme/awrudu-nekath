@@ -5,6 +5,7 @@ import { getCountryName } from "@/utils/timezoneUtils";
 
 interface NekathItem {
   dateTimeUnix: number;
+  dateTimeEndUnix?: number;
   title: string;
   subTitle: string;
   description: string;
@@ -67,7 +68,12 @@ const NekathCarousel: React.FC<Props> = ({ nekathData, timezone, country }) => {
         ref={scrollRef}
       >
         <div className="flex snap-x snap-mandatory gap-8 md:gap-12 px-4 sm:px-8  scroll-pl-2 sm:scroll-pl-6">
-          {[...nekathData].sort((a, b) => a.dateTimeUnix - b.dateTimeUnix).map((item, index) => (
+          {[...nekathData].sort((a, b) => {
+            const now = Math.floor(Date.now() / 1000);
+            const aTime = a.subTitle === "Nonagathaya" && a.dateTimeEndUnix && now > a.dateTimeUnix ? a.dateTimeEndUnix : a.dateTimeUnix;
+            const bTime = b.subTitle === "Nonagathaya" && b.dateTimeEndUnix && now > b.dateTimeUnix ? b.dateTimeEndUnix : b.dateTimeUnix;
+            return aTime - bTime;
+          }).map((item, index) => (
             <div
               key={index}
               className="snap-start shrink-0 w-[90%] sm:w-[50%] md:w-[30%] lg:w-[22%] xl:w-[17%]"
