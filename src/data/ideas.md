@@ -1,0 +1,3 @@
+- Add big timer when time is close to 2 mins
+- On the nekatha add firecrakers
+- animate photos?
